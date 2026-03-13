@@ -52,3 +52,17 @@ print(PromedioEdadPorClase)
 # ¿Cuál fue la tarifa promedio pagada (columna Fare) por los sobrevivientes vs los que no sobrevivieron?
 TarifaPromedio = df.groupby("Survived")["Fare"].mean()
 print(TarifaPromedio)
+
+#CONCLUSIONES 
+# 1. Las mujeres tuvieron una tasa de supervivencia del 74% vs 18% de los hombres.
+#   Esto confirma la política "mujeres y niños primero".
+
+# 2. La clase social fue determinante: 1ra clase sobrevivió ~63%, 
+#   3ra clase solo ~24%. El dinero aumentaba las chances de sobrevivir.
+
+# 3. Los sobrevivientes pagaron en promedio el doble de tarifa,
+#   lo que se relaciona directamente con el punto anterior.
+
+# 4. Había 113 menores de 18 años a bordo.
+
+# 5. El pasajero promedio tenía ~29 años.
