@@ -24,8 +24,5 @@ print(df.columns)
 df = df.dropna(subset=["Embarked"])
 print(df.isnull().sum())
 
-# ¿Cuántos pasajeros sobrevivieron y cuántos no? (columna Survived: 1 = sí, 0 = no)
-# ¿Cuál fue el promedio de edad de los pasajeros?
-# ¿Cuántos pasajeros había en cada clase? (columna Pclass)
-
-print(df["Survived"].value_counts())
+#Para contar agrupado por categorías existe este método que aún no conoces:
+df["columna"].value_counts()
