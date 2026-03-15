@@ -48,30 +48,32 @@ cursor = conn.cursor()
 # """)
 # print(cursor.fetchall())
 
-# # Escribe una consulta que muestre el nombre del producto y 
-# # el total vendido (precio × cantidad) por cada venta, ordenado de mayor a menor total.
-# cursor.execute("""
-#                SElECT productos.nombre, productos.precio * ventas.cantidad AS total 
-#                FROM ventas 
-#                JOIN productos ON ventas.producto_id = productos.id 
-#                ORDER BY total DESC
-#                """)
-# print(cursor.fetchall())
-
-
+# Escribe una consulta que muestre el nombre del producto y 
+# el total vendido (precio × cantidad) por cada venta, ordenado de mayor a menor total.
 cursor.execute("""
-    SELECT productos.nombre, SUM(ventas.cantidad) AS total_vendido
-    FROM ventas
-    JOIN productos ON ventas.producto_id = productos.id
-    GROUP BY productos.nombre
-""")
+               SElECT productos.nombre, productos.precio * ventas.cantidad AS total 
+               FROM ventas 
+               JOIN productos ON ventas.producto_id = productos.id
+               ORDER BY total DESC
+               """)
+print(cursor.fetchall())
+
+
+# cursor.execute("""
+#     SELECT productos.nombre, SUM(ventas.cantidad) AS total_vendido
+#     FROM ventas
+#     JOIN productos ON ventas.producto_id = productos.id
+#     GROUP BY productos.nombre
+# """)
 # print(cursor.fetchall())
 
-# ¿Cuánto dinero generó cada producto en total? 
-# Muestra nombre y total de ingresos (precio × cantidad sumado), ordenado de mayor a menor.
+# # ¿Cuánto dinero generó cada producto en total? 
+# # Muestra nombre y total de ingresos (precio × cantidad sumado), ordenado de mayor a menor.
 cursor.execute("""SELECT productos.nombre, productos.precio * SUM(ventas.cantidad) AS total_ingresos 
                FROM ventas JOIN productos ON ventas.producto_id=productos.id 
                GROUP BY productos.nombre ORDER BY total_ingresos DESC
                """)
 print(cursor.fetchall())
-conn.close()
+
+# conn.close()
+    
