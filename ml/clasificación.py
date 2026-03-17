@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, classification_report
+import matplotlib.pyplot as plt
 
 # Cargar y limpiar datos
 df = pd.read_csv("pandas/train.csv")
@@ -28,15 +29,16 @@ y_pred = modelo.predict(X_test)
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print(classification_report(y_test, y_pred))
 
-import numpy as np
+from sklearn.ensemble import RandomForestClassifier
 
-# [Pclass, Sex, Age, Fare]
-pasajeros = np.array([
-    [3, 0, 25, 7.25],   # hombre joven, 3ra clase, tarifa baja
-    [1, 1, 35, 100.0],  # mujer adulta, 1ra clase, tarifa alta
-    [2, 0, 45, 30.0],   # hombre mayor, 2da clase
-])
+modelo_rf = RandomForestClassifier(n_estimators=100, random_state=42)
+modelo_rf.fit(X_train, y_train)
 
-predicciones = modelo.predict(pasajeros)
-print(predicciones)
-print(classification_report(predicciones))
+y_pred_rf = modelo_rf.predict(X_test)
+print("Random Forest Accuracy:", accuracy_score(y_test, y_pred_rf))
+print(classification_report(y_test, y_pred_rf))
+
+importancias = pd.Series(modelo_rf.feature_importances_, )
+importancias.sort_values().plot(kind="barh", color="steelblue")
+plt.title("Importancia de cada feature")
+plt.show()
