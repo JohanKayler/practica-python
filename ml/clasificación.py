@@ -38,7 +38,7 @@ y_pred_rf = modelo_rf.predict(X_test)
 print("Random Forest Accuracy:", accuracy_score(y_test, y_pred_rf))
 print(classification_report(y_test, y_pred_rf))
 
-importancias = pd.Series(modelo_rf.feature_importances_, )
+importancias = pd.Series(modelo_rf.feature_importances_, index=X.columns)
 importancias.sort_values().plot(kind="barh", color="steelblue")
 plt.title("Importancia de cada feature")
 plt.show()

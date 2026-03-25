@@ -26,4 +26,3 @@ print("Intercepto:", modelo.intercept_)
 # Predecir para un estudiante nuevo
 horas_nuevas = np.array([[7]])
 print("Predicción para 7 horas:", modelo.predict(horas_nuevas)[0])
-print(modelo())

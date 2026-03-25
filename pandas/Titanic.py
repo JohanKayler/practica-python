@@ -1,12 +1,12 @@
 import pandas as pd
 
 df = pd.read_csv("pandas/train.csv")
-print(df.shape)
-print(df.head())
-print(df.tail())
-print(df.info())
-print(df.describe())
-print(df.isnull().sum()) #Eso te muestra exactamente cuántos nulos tiene cada columna.
+# print(df.shape)
+# print(df.head())
+# print(df.tail())
+# print(df.info())
+# print(df.describe())
+# print(df.isnull().sum()) #Eso te muestra exactamente cuántos nulos tiene cada columna.
 
 # Eliminar filas con nulos
 df_sin_nulos = df.dropna()
@@ -25,4 +25,4 @@ df = df.dropna(subset=["Embarked"])
 print(df.isnull().sum())
 
 #Para contar agrupado por categorías existe este método que aún no conoces:
-df["columna"].value_counts()
+# df["columna"].value_counts()

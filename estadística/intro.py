@@ -2,12 +2,12 @@ import numpy as np
 
 datos = np.array([23, 25, 28, 22, 30, 27, 24, 29, 26, 25])
 
-print("Media:", np.mean(datos))
-print("Mediana:", np.median(datos))
-print("Desviación estándar:", np.std(datos))
-print("Varianza:", np.var(datos))
-print("Mínimo:", np.min(datos))
-print("Máximo:", np.max(datos))
+# print("Media:", np.mean(datos))
+# print("Mediana:", np.median(datos))
+# print("Desviación estándar:", np.std(datos))
+# print("Varianza:", np.var(datos))
+# print("Mínimo:", np.min(datos))
+# print("Máximo:", np.max(datos))
 
 
 horas_estudio = np.array([2, 4, 6, 8, 10, 3, 7, 5, 9, 1])
@@ -29,7 +29,7 @@ import matplotlib.pyplot as plt
 datos_normales = np.random.normal(loc=170, scale=10, size=1000)
 # loc = promedio, scale = desviación estándar, size = cantidad de datos
 
-plt.hist(datos_normales, bins=30, color="steelblue", edgecolor="black")
+plt.hist(datos_normales, bins=100, color="steelblue", edgecolor="black")
 plt.title("Distribución normal - Alturas")
 plt.xlabel("Altura (cm)")
 plt.ylabel("Frecuencia")
@@ -37,4 +37,4 @@ plt.show()
 
 print("Promedio:", np.mean(datos_normales))
 print("Std:", np.std(datos_normales))
-print(datos_normales)
+
